@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
         headers: { 'Authorization': `Bearer ${process.env.API_KEY}` },
         params: req.query 
     }).then(response => {
-        console.log(response);
-        res.status(response.statusCode).send(response.data);
+        console.log(response, response.statusCode);
+        res.status(200).send(response.data);
     }).catch(error => {
         console.error(error);   
         res.send(error.message)
