@@ -3,7 +3,7 @@ if(process.env.dev) require('dotenv').config();
 const axios = require('axios');
 const app = require('express')();
 
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 const url = 'https://api.yelp.com/v3/businesses/search'
 
 app.get('/', (req, res) => {
