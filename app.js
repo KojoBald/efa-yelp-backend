@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
         params: req.query 
     }).then(response => {
         console.log(response);
-        res.send(response);
+        res.status(response.statusCode).send(response.data);
     }).catch(error => {
         console.error(error);   
         res.send(error.message)
