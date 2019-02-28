@@ -11,9 +11,9 @@ app.get('/', (req, res) => {
     axios.get(url, { 
         headers: { 'Authorization': `Bearer ${process.env.API_KEY}` },
         params: req.query 
-    }).then(response => {
-        console.log(response, response.statusCode);
-        res.status(200).send(response.data);
+    }).then(({ data: { businesses } }) => {
+        let random = businesses[Math.floor(Math.random() * businesses.length)]
+        res.status(200).send(random);
     }).catch(error => {
         console.error(error);   
         res.send(error.message)
